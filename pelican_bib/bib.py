@@ -262,7 +262,7 @@ class Bibliography(Directive):
             'PUBLICATIONS_DEFAULT_TEMPLATE', 'bibliography'
         )
         template_options = {}
-        classes = [ 'bibliography' ]
+        classes = ['bibliography']
         filter_tag = None
         pybtex_style_args = {}
 
@@ -329,7 +329,7 @@ class Bibliography(Directive):
         node = nodes.raw(text = html, format='html')
         container = nodes.container(classes = classes)
         container.append(node)
-        return [ container ]
+        return [container]
 
     def get_pelican_path(self, path):
         """ determine actual absolute path in Pelican context """
