@@ -121,7 +121,7 @@ def add_publications_to_context(generator, refs_files, refs_string=None, pybtex_
             logger.warn('PelicanStyle must be a subclass of pybtex.style.formatting.BaseStyle')
 
     # collect entries
-    bibdata_entries = { }
+    bibdata_entries = {}
     for file in refs_files:
         bibdata_entries.update(Parser().parse_file(file).entries)
     if refs_string:
