@@ -198,7 +198,7 @@ def add_publications_to_context(generator, refs_files, refs_string=None, pybtex_
 
 
 class Bibliography(Directive):
-    """ 
+    """
     Directive to embed bibliographies into articles/posts.
 
     Usage:
@@ -319,7 +319,7 @@ class Bibliography(Directive):
             # absolute path => relative to Pelican working directory
             path = join(self.generator.path, path[1:])
         else:
-            # relative path => relative to directory of 
+            # relative path => relative to directory of
             # source file using the directive
             source, line = self.state_machine.get_source_and_line(self.lineno)
             source_dir = dirname(abspath(source))
