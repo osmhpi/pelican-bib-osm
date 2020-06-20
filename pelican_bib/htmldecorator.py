@@ -1,7 +1,7 @@
 from pybtex.style.template import tag
 from pybtex.database import Person
 
-def get_style_type(cls,decorate_html):
+def get_style_type(cls, decorate_html):
     """
     Overrides ``format_*`` and ``get_*_template`` methods and surrounds
     the result with a format-method-specific html tag, e.g.
