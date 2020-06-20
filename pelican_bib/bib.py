@@ -241,8 +241,8 @@ class Bibliography(Directive):
         Bibliography.generator = generator
 
     def boolean(argument):
-        if argument=='True': return True
-        if argument=='False': return False
+        if argument == 'True': return True
+        if argument == 'False': return False
         raise ValueError('must be boolean')
     option_spec = {
         'template': directives.unchanged,
