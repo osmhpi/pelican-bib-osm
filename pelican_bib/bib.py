@@ -41,14 +41,16 @@ Configuration
 import logging
 logger = logging.getLogger(__name__)
 
-from os.path import join, basename, dirname, abspath
-from os import sep as path_separator
-from re import sub as replace
-from pelican import signals
-from jinja2 import Template
-from docutils.parsers.rst import directives, Directive
-from docutils import nodes, utils
 from ast import literal_eval
+from os import sep as path_separator
+from os.path import join, basename, dirname, abspath
+from re import sub as replace
+
+from docutils import nodes, utils
+from docutils.parsers.rst import directives, Directive
+from jinja2 import Template
+from pelican import signals
+
 from .htmldecorator import get_style_type
 
 
