@@ -76,7 +76,7 @@ def generator_init(generator):
     if 'PUBLICATIONS_SRC'in generator.settings:
         refs_files = generator.settings['PUBLICATIONS_SRC']
         if isinstance(refs_files, str):
-            refs_files = [ refs_files ]
+            refs_files = [refs_files]
         add_publications_to_context(generator, refs_files)
 
 
@@ -326,8 +326,8 @@ class Bibliography(Directive):
             self.generator.context = original_context
 
         # return container with HTML content
-        node = nodes.raw(text = html, format='html')
-        container = nodes.container(classes = classes)
+        node = nodes.raw(text=html, format='html')
+        container = nodes.container(classes=classes)
         container.append(node)
         return [container]
 
