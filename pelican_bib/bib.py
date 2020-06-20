@@ -13,23 +13,23 @@ websites.
 Configuration
 -------------
 
-generator.settings['PUBLICATIONS_SRC']:
+``generator.settings['PUBLICATIONS_SRC']``:
     Local path to the BibTeX file to read.
     Each generator contains this list of publications.
 
-generator.settings['PUBLICATIONS_SPLIT_BY']:
+``generator.settings['PUBLICATIONS_SPLIT_BY']``:
     The name of the bibtex field used for splitting the publications.
     No splitting if title is not provided.
 
-generator.settings['PUBLICATIONS_UNTAGGED_TITLE']:
+``generator.settings['PUBLICATIONS_UNTAGGED_TITLE']``:
     The title of the header for all untagged entries.
     No such list if title is not provided.
 
-generator.settings['PUBLICATIONS_DECORATE_HTML']:
+``generator.settings['PUBLICATIONS_DECORATE_HTML']``:
     If set to True, elements of a publication entry (e.g. names, title)
     will be decorated with a <span> tag with a specific class name
 
-generator.settings['PUBLICATIONS_DEFAULT_TEMPLATE']:
+``generator.settings['PUBLICATIONS_DEFAULT_TEMPLATE']``:
     The name of the template used as default if there is no
     template name argument present in the ``bibliography`` directive.
     ``bibliography`` if no value provided.
@@ -55,18 +55,18 @@ from .htmldecorator import get_style_type
 def generator_init(generator):
     """ Populates context with a list of BibTeX publications.
 
-    generator.settings['PUBLICATIONS_SRC']:
+    ``generator.settings['PUBLICATIONS_SRC']``:
         Local path to the BibTeX file to read.
 
     Output
     ------
 
-    generator.context['publications_lists']:
+    ``generator.context['publications_lists']``:
         A map with keys retrieved from the field named in PUBLICATIONS_SPLIT_TAG.
         Values are lists of tuples (key, year, text, bibtex, pdf, slides, poster)
         See Readme.md for more details.
 
-    generator.context['publications']:
+    ``generator.context['publications']``:
         Contains all publications as a list of tuples
         (key, year, text, bibtex, pdf, slides, poster).
         See Readme.md for more details.
@@ -203,7 +203,8 @@ class Bibliography(Directive):
     """
     Directive to embed bibliographies into articles/posts.
 
-    Usage:
+    Usage::
+
         .. bibliography:: PUBLICATIONS_SRC
           :template: TEMPLATE_NAME (optional)
           :options: TEMPLATE_OPTIONS_DICT (optional)
@@ -214,7 +215,8 @@ class Bibliography(Directive):
           :abbreviate_names: PYBTEX_ABBREVIATE_NAMES (optional)
           :name_style: PYBTEX_NAME_STYLE (optional)
 
-    e.g.
+    e.g.::
+
         .. bibliography:: osm.bib
           :template: publications_unsrt
           :options: {'groupby_value': year}
