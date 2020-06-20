@@ -215,9 +215,11 @@ class Bibliography(Directive):
     e.g.
         .. bibliography:: osm.bib
           :template: publications_unsrt
-          :options: { 'groupby_value': year }
+          :options: {'groupby_value': year}
           :class: my-bib
-          :pybtex_style_args: { 'sorting_style': 'author_year_title', 'abbreviate_names': False, 'name_style': 'lastfirst' }
+          :pybtex_style_args: {'sorting_style': 'author_year_title',
+                               'abbreviate_names': False,
+                               'name_style': 'lastfirst' }
           :sorting_style: author_year_title
           :abbreviate_names: False
           :name_style: lastfirst
