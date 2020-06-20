@@ -258,7 +258,9 @@ class Bibliography(Directive):
     def run(self):
         refs_files = self.arguments
         refs_string = '\n'.join(self.content)
-        template_name = self.generator.settings.get('PUBLICATIONS_DEFAULT_TEMPLATE', 'bibliography')
+        template_name = self.generator.settings.get(
+            'PUBLICATIONS_DEFAULT_TEMPLATE', 'bibliography'
+        )
         template_options = {}
         classes = [ 'bibliography' ]
         filter_tag = None
@@ -278,7 +280,9 @@ class Bibliography(Directive):
         if 'pybtex_style_args' in self.options:
             pybtex_style_args.update(literal_eval(self.options['pybtex_style_args']))
         if 'sorting_style' in self.options:
-            pybtex_style_args['sorting_style'] = self.options['sorting_style']
+            pybtex_style_args['sorting_style'] = self.options[
+                'sorting_style'
+            ]
         if 'abbreviate_names' in self.options:
             pybtex_style_args['abbreviate_names'] = self.options['abbreviate_names']
         if 'name_style' in self.options:
@@ -290,25 +294,33 @@ class Bibliography(Directive):
 
         refs_files = (self.get_pelican_path(file) for file in refs_files)
 
-        # create a copy of generator context (don't mess up original context)
+        # create a copy of generator context (don't mess up original
+        # context)
         original_context = self.generator.context
         self.generator.context = self.generator.context.copy()
 
         try:
             # add publications to generator.context
             self.generator.context.update(template_options)
-            add_publications_to_context(self.generator, refs_files, refs_string, pybtex_style_args)
+            add_publications_to_context(self.generator, refs_files,
+                refs_string, pybtex_style_args)
 
-            # if applicable, return only publications containing a specific tag
+            # if applicable, return only publications containing a
+            # specific tag
             if filter_tag:
-                self.generator.context['publications'] = self.generator.context['publications_lists'][filter_tag]
+                self.generator.context['publications'] = \
+                    self.generator.context['publications_lists'][filter_tag]
 
             # find template & generate HTML
             template = self.generator.get_template(template_name)
             html = template.render(self.generator.context)
 
         except Exception as e:
-            raise self.error('Error rendering template `{}` ({}). '.format(template_name, e))
+            raise self.error(
+                'Error rendering template `{}` ({}). '.format(
+                    template_name, e
+                )
+            )
         finally:
             # restore original context
             self.generator.context = original_context
@@ -327,7 +339,9 @@ class Bibliography(Directive):
         else:
             # relative path => relative to directory of
             # source file using the directive
-            source, line = self.state_machine.get_source_and_line(self.lineno)
+            source, line = self.state_machine.get_source_and_line(
+                self.lineno
+            )
             source_dir = dirname(abspath(source))
             path = join(source_dir, path)
         path = nodes.reprunicode(path)
