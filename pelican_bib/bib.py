@@ -7,11 +7,12 @@ Pelican Bib
 A Pelican plugin that populates the context with a list of formatted
 citations, loaded from a BibTeX file at a configurable path.
 
-The use case for now is to generate a ``Publications'' page for academic
+The use case for now is to generate a "Publications" page for academic
 websites.
 
 Configuration
 -------------
+
 generator.settings['PUBLICATIONS_SRC']:
     Local path to the BibTeX file to read.
     Each generator contains this list of publications.
@@ -30,8 +31,8 @@ generator.settings['PUBLICATIONS_DECORATE_HTML']:
 
 generator.settings['PUBLICATIONS_DEFAULT_TEMPLATE']:
     The name of the template used as default if there is no
-    template name argument present in the `bibliography` directive.
-    `bibliography` if no value provided.
+    template name argument present in the ``bibliography`` directive.
+    ``bibliography`` if no value provided.
 
 """
 # Author: Vlad Niculae <vlad@vene.ro>
@@ -59,6 +60,7 @@ def generator_init(generator):
 
     Output
     ------
+
     generator.context['publications_lists']:
         A map with keys retrieved from the field named in PUBLICATIONS_SPLIT_TAG.
         Values are lists of tuples (key, year, text, bibtex, pdf, slides, poster)
